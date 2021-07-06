@@ -1,0 +1,22 @@
+{
+  "name": "video-rental-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon index.js",
+    "start": "node index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "config": "^3.3.6",
+    "express": "^4.17.1",
+    "helmet": "^4.6.0",
+    "joi": "^17.4.0",
+    "mongoose": "^5.13.2",
+    "morgan": "^1.10.0",
+    "pug": "^3.0.2"
+  }
+}
