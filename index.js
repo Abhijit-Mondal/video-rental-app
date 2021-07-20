@@ -1,3 +1,7 @@
+// Loading environment variables
+require("dotenv").config();
+const config = require("config");
+
 // app debugging
 const startupDebugger = require("debug")("app:startup");
 const dbDebugger = require("debug")("app:db");
@@ -9,7 +13,7 @@ const app = express();
 
 // connecting to a database:
 const mongoose = require("mongoose");
-mongoose.connect("mongodb://localhost:27017/vidly_genres_app",{useUnifiedTopology: true, useNewUrlParser: true})
+mongoose.connect(config.get("database_uri"),{useUnifiedTopology: true, useNewUrlParser: true})
     .then(()=>dbDebugger("Connected to MongoDB..."))
     .catch((err)=>console.err("Could not connect to MongoDB", err));
 
@@ -45,7 +49,6 @@ if(app.get("env") === "development"){
 
 
 // app configurations
-const config = require("config");
 startupDebugger(`Application Name: ${config.get("name")}`);
 startupDebugger(`Mail Server Name: ${config.get("mail.host")}`);
 startupDebugger(`Mail Server Password: ${config.get("mail.password")}`);
